@@ -33,6 +33,10 @@ def request_rating(ratings):
             rest = raw_input('Please enter a restaurant: ')
             rating = raw_input('Please rate the restaurant: ')
 
+            while not rating.isdigit() or int(rating) < 1 or int(rating) > 5:
+                print 'Please add a numerical rating between 1 and 5.'
+                rating = raw_input('Please rate the restaurant: ')
+
             rest = rest[0].upper() + rest[1:]
             ratings[rest] = rating
         else:
