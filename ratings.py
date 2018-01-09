@@ -13,9 +13,29 @@ def sort_rest_ratings(file_name="scores.txt"):
         restaurant, rating = line.rstrip().split(":")
         ratings[restaurant] = rating
 
-    request_rating(ratings)
-    #ratings[new_restaurant] = new_rating
+    while True:
+        # Ask user for input
+        # 1. See all ratings
+        # 2. Add a restaurant rating
+        # 3. Quit
+        print 'Would you like to:'
+        print '1) See all restaurant ratings'
+        print '2) Add a new restaurant rating'
+        print 'Q) Quit'
+        main_choice = raw_input('> ')
+        print '\n'
 
+        if main_choice == '1':
+            print_ratings(ratings)
+        elif main_choice == '2':
+            request_rating(ratings)
+        elif main_choice == 'Q':
+            break
+        else:
+            'Please enter 1, 2, or Q.'
+
+
+def print_ratings(ratings):
     sorted_restaurants = sorted(ratings.keys())
 
     for restaurant in sorted_restaurants:
